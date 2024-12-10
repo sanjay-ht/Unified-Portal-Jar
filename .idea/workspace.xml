@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="15219745-aff8-4c07-8cf6-2a718445cb94" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/6.1.5/spring-test-6.1.5.jar!/org/springframework/test/context/junit4/AbstractTransactionalJUnit4SpringContextTests.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/6.1.5/spring-web-6.1.5.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/6.1.5/spring-webmvc-6.1.5.jar!/org/springframework/web/servlet/DispatcherServlet.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/Downloads/UBI.jar!/demo2/UBIAutomationV4_Edge.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2mVrtcAiEiTuPD969PGVY3vrr82" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "JAR Application.UBI (1).jar (1).executor": "Debug",
+    "JAR Application.UBI (1).jar.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.UsersmanagementsystemApplication.executor": "Debug",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/m9438/Desktop/JarSchedule/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\m9438\Desktop\dev-code\unified-portal\code\backend\src\main\java\com\dev\usersmanagementsystem" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.UsersmanagementsystemApplication">
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="UBI (1).jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$USER_HOME$/Downloads/UBI (1).jar!/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UBI (1).jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$USER_HOME$/Downloads/UBI (1).jar!/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UsersmanagementsystemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="usersmanagementsystem" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.dev.usersmanagementsystem.UsersmanagementsystemApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="JAR Application.UBI (1).jar" />
+      <item itemvalue="JAR Application.UBI (1).jar (1)" />
+      <item itemvalue="Spring Boot.UsersmanagementsystemApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.UBI (1).jar (1)" />
+        <item itemvalue="JAR Application.UBI (1).jar" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15219745-aff8-4c07-8cf6-2a718445cb94" name="Changes" comment="" />
+      <created>1727172801203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727172801203</updated>
+      <workItem from="1727172801830" duration="41224000" />
+      <workItem from="1727769658026" duration="9434000" />
+      <workItem from="1727928878616" duration="10180000" />
+      <workItem from="1728287705984" duration="2596000" />
+      <workItem from="1728293099426" duration="505000" />
+      <workItem from="1728293623123" duration="1239000" />
+      <workItem from="1728294894067" duration="576000" />
+      <workItem from="1728295486517" duration="15854000" />
+      <workItem from="1728470913248" duration="849000" />
+      <workItem from="1728533722488" duration="82157000" />
+      <workItem from="1729249007180" duration="187000" />
+      <workItem from="1729249332205" duration="2662000" />
+      <workItem from="1729484257722" duration="8006000" />
+      <workItem from="1729746338915" duration="4472000" />
+      <workItem from="1730172326923" duration="17098000" />
+      <workItem from="1730957143536" duration="86673000" />
+      <workItem from="1732532811746" duration="255000" />
+      <workItem from="1732616983197" duration="852000" />
+      <workItem from="1732682299600" duration="54000" />
+      <workItem from="1732696221074" duration="161000" />
+      <workItem from="1732696658429" duration="1717000" />
+      <workItem from="1732698594391" duration="4913000" />
+      <workItem from="1732705227080" duration="2359000" />
+      <workItem from="1732854704671" duration="11387000" />
+      <workItem from="1733114166411" duration="21157000" />
+      <workItem from="1733306648188" duration="21446000" />
+      <workItem from="1733719270656" duration="15167000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/Downloads/UBI.jar!/demo2/UBIAutomationV4_Edge.class</url>
+          <line>123</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Company.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
