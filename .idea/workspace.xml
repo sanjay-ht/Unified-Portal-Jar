@@ -5,8 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15219745-aff8-4c07-8cf6-2a718445cb94" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/UsersmanagementsystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/UsersmanagementsystemApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/dto/ReqRes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/dto/ReqRes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/ExecutionTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/ExecutionTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/OurUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/OurUsers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Scenario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Scenario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/repository/UsersRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/sample_0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/UsersmanagementsystemApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/UsersmanagementsystemApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/dto/ReqRes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/dto/ReqRes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/Company.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/Company.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/ExecutionTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/ExecutionTime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/OurUsers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/OurUsers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/Scenario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/Scenario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/entity/Schedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dev/usersmanagementsystem/service/UsersManagementService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.dev.usersmanagementsystem.UsersmanagementsystemApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.dev.usersmanagementsystem.UsersmanagementsystemApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.dev.usersmanagementsystem.UsersmanagementsystemApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.dev.usersmanagementsystem.UsersmanagementsystemApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/usersmanagementsystem-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/usersmanagementsystem-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/usersmanagementsystem-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/usersmanagementsystem-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,31 +71,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "JAR Application.UBI (1).jar (1).executor": "Debug",
-    "JAR Application.UBI (1).jar.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.UsersmanagementsystemApplication.executor": "Debug",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/m9438/Desktop/JarSchedule/backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.UBI (1).jar (1).executor&quot;: &quot;Debug&quot;,
+    &quot;JAR Application.UBI (1).jar.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.UsersmanagementsystemApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/m9438/Desktop/JarSchedule/backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\m9438\Desktop\dev-code\unified-portal\code\backend\src\main\java\com\dev\usersmanagementsystem" />
@@ -143,7 +176,13 @@
       <workItem from="1732854704671" duration="11387000" />
       <workItem from="1733114166411" duration="21157000" />
       <workItem from="1733306648188" duration="21446000" />
-      <workItem from="1733719270656" duration="15167000" />
+      <workItem from="1733719270656" duration="41129000" />
+      <workItem from="1733979450095" duration="3031000" />
+      <workItem from="1733986854724" duration="6193000" />
+      <workItem from="1734087569094" duration="3277000" />
+      <workItem from="1734342133187" duration="3584000" />
+      <workItem from="1734417035437" duration="10123000" />
+      <workItem from="1734511403751" duration="824000" />
     </task>
     <servers />
   </component>
@@ -160,27 +199,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java</url>
-          <line>24</line>
+          <line>27</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java</url>
-          <line>23</line>
+          <line>26</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/entity/Company.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/service/UsersManagementService.java</url>
-          <line>155</line>
+          <line>131</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
-          <line>152</line>
+          <line>149</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -190,32 +224,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
-          <line>147</line>
+          <line>144</line>
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
-          <line>150</line>
+          <line>147</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
-          <line>42</line>
+          <line>45</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
-          <line>64</line>
+          <line>72</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
-          <line>230</line>
+          <line>192</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/dev/usersmanagementsystem/App.java</url>
-          <line>102</line>
+          <line>103</line>
           <option name="timeStamp" value="93" />
         </line-breakpoint>
       </breakpoints>
