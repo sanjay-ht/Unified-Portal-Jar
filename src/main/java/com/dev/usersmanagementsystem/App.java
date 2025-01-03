@@ -88,7 +88,7 @@ public class App {
     }
 
     private void waitForElementVisibility(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5000));
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
     }
 
@@ -135,98 +135,159 @@ public class App {
         System.out.println("Steps: " + stepsNode);
         int nodelen = getNodeLength(stepsNode);
         System.out.println("Length of Steps are " + nodelen);
-        for (JsonNode step : stepsNode) {
-            System.out.println("Step: " + step);
-            String type = step.get("type").asText();
-            if (type.equals("navigate")) {
-                String url = step.get("url").asText();
-                JsonNode assertedEventsNode = step.get("assertedEvents");
-                String title = "";
-                if (assertedEventsNode != null && !assertedEventsNode.isEmpty()) {
-                    title = assertedEventsNode.get(0).get("title").asText();
-                    System.out.println("Title: " + title);
-                }
-                try {
-                    System.out.println("Navigating to URL: " + url);
-                    long startTime = System.currentTimeMillis();
-                    Timestamp startTimeStamp = new Timestamp(startTime);
-                    navigateAndWait(url);
-                    long endTime = System.currentTimeMillis();
-                    Timestamp endTimeStamp = new Timestamp(endTime);
-                    storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
-                } catch (Exception e) {
-                    Timestamp zeroTimestamp = new Timestamp(0);
-                    storeLog(zeroTimestamp, e.toString(), 0, zeroTimestamp, "Failed", title, url, userId);
-
-                }
-            }
-            if (type.equals("click")) {
-                JsonNode selectorsGroup = step.get("selectors");
-                for (JsonNode selectors : selectorsGroup) {
-                    for (JsonNode selector : selectors) {
-                        String SelectorText = selector.asText();
-                        System.out.println("Selector: " + SelectorText);
-                        try {
-                            if (SelectorText.startsWith("xpath")) {
-                                String xpath = SelectorText.replace("xpath/", "");
-                                System.out.println(xpath);
-                                waitForElementVisibility(By.xpath(xpath));
-                                clickOnElement(By.xpath(xpath));
-                                break;
-                            }
-                        } catch (NoSuchElementException e) {   //break;
-                            String regex = "[^\"]+component-[^\"]+";
-                            Pattern pattern = Pattern.compile(regex);
-                            Matcher matcher = pattern.matcher(SelectorText);
-                            System.out.println("Xpath Didn't Worked Trying With Css Selector");
-
-                            if (matcher.find()) {
-                                String csspath = matcher.group(); // Extracted ID part
-                                csspath = "#" + csspath;
-                                System.out.println("Extracted ID: " + csspath);
-                                waitForElementVisibility(By.cssSelector(csspath));
-                                clickOnElement(By.cssSelector(csspath));
-                            } else {
-                                System.out.println("ID not found.");
-                            }
-
-                        }
+        Timestamp zero=new Timestamp(0);
+        try{
+            for (JsonNode step : stepsNode) {
+                System.out.println("Step: " + step);
+                String type = step.get("type").asText();
+                if (type.equals("navigate")) {
+                    String url = step.get("url").asText();
+                    JsonNode assertedEventsNode = step.get("assertedEvents");
+                    String title = "";
+                    if (assertedEventsNode != null && !assertedEventsNode.isEmpty()) {
+                        title = assertedEventsNode.get(0).get("title").asText();
+                        System.out.println("Title: " + title);
                     }
+                    try {
+                        System.out.println("Navigating to URL: " + url);
+                        long startTime = System.currentTimeMillis();
+                        Timestamp startTimeStamp = new Timestamp(startTime);
+                        navigateAndWait(url);
+                        long endTime = System.currentTimeMillis();
+                        Timestamp endTimeStamp = new Timestamp(endTime);
+                        storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
+                    } catch (Exception e) {
+                        storeLog(zero, e.toString(), 0, zero, "Failed", title, url, userId);
+                        break;
 
-                }
-
-
-            }
-            if (type.equals("wait")) {
-                System.out.println("Start Time");
-                Thread.sleep(20000);
-                System.out.println("End Time");
-            }
-            if (type.equals("change")) {
-                JsonNode selectorsGroup = step.get("selectors");
-                for (JsonNode selectors : selectorsGroup) {
-                    for (JsonNode selector : selectors) {
-                        String SelectorText = selector.asText();
-                        System.out.println("Selector: " + SelectorText);
-                        try {
-                            if (SelectorText.startsWith("xpath")) {
-                                String xpath = SelectorText.replace("xpath/", "");
-                                System.out.println(xpath);
-                                String Text = step.get("value").asText();
-                                waitForElementVisibility(By.xpath(xpath));
-                                enterText(By.xpath(xpath), Text);
-
-                                break;
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e.toString());
-                        }
                     }
                 }
-            }
+                if (type.equals("click")) {
+                    JsonNode selectorsGroup = step.get("selectors");
+                    JsonNode assertedEvents=step.get("assertedEvents");
+                    String url="";
+                    String title="";
+                    if (assertedEvents != null && !assertedEvents.isEmpty()) {
+                         url=assertedEvents.get(0).get("url").asText();
+                         title=assertedEvents.get(0).get("title").asText();
+                    }
+                    for (JsonNode selectors : selectorsGroup) {
+                        for (JsonNode selector : selectors) {
+                            String SelectorText = selector.asText();
+                            System.out.println("Selector: " + SelectorText);
+                            try {
+                                 if(SelectorText.startsWith("xpath")) {
+                                    String xpath = SelectorText.replace("xpath/", "");
+                                    System.out.println(xpath);
+                                    long startTime = System.currentTimeMillis();
+                                    Timestamp startTimeStamp = new Timestamp(startTime);
 
+                                    waitForElementVisibility(By.xpath(xpath));
+
+                                    long endTime = System.currentTimeMillis();
+                                    Timestamp endTimeStamp = new Timestamp(endTime);
+                                    clickOnElement(By.xpath(xpath));
+                                    if(!title.equals("")){
+                                        storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
+
+                                    }
+//                                    break;  // Stop after first successful click (you can remove this if you want to keep trying other selectors)
+                                }
+                            } catch (NoSuchElementException e) {
+                                // Handle XPath failure and fallback to CSS selector
+                                String regex = "component-[\\w-]+";  // Refined regex for better matching
+                                Pattern pattern = Pattern.compile(regex);
+                                Matcher matcher = pattern.matcher(SelectorText);
+                                System.out.println("Xpath Didn't Work, Trying With Css Selector");
+
+                                if (matcher.find()) {
+                                    String csspath = matcher.group(); // Extracted ID part
+                                    csspath = "#" + csspath;  // Format as CSS selector
+                                    System.out.println("Extracted ID: " + csspath);
+                                    long startTime = System.currentTimeMillis();
+                                    Timestamp startTimeStamp = new Timestamp(startTime);
+
+
+                                    waitForElementVisibility(By.cssSelector(csspath));
+                                    long endTime = System.currentTimeMillis();
+                                    Timestamp endTimeStamp = new Timestamp(endTime);
+
+                                    clickOnElement(By.cssSelector(csspath));
+                                    if(!title.equals("")){
+                                        storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
+                                    }
+
+//                                    break;  // Stop after successful click (same as before, optional)
+                                } else {
+                                    if(!title.equals("")){
+                                        storeLog(zero, "", 0, zero, "Failed", title, url, userId);
+                                    }
+                                    System.out.println("ID not found in fallback attempt.");
+//                                    break;
+                                    driver.quit();
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                if (type.equals("wait")) {
+                    System.out.println("Start Time");
+                    Thread.sleep(20000);
+                    System.out.println("End Time");
+                }
+                if (type.equals("change")) {
+                    JsonNode selectorsGroup = step.get("selectors");
+                    String url="";
+                    String title="";
+                    JsonNode assertedEvents=step.get("assertedEvents");
+                    if (assertedEvents != null && !assertedEvents.isEmpty()) {
+                        url=assertedEvents.get(0).get("url").asText();
+                        title=assertedEvents.get(0).get("title").asText();
+                    }
+                    for (JsonNode selectors : selectorsGroup) {
+                        for (JsonNode selector : selectors) {
+                            String SelectorText = selector.asText();
+                            System.out.println("Selector: " + SelectorText);
+                            try {
+                                 if (SelectorText.startsWith("xpath")) {
+                                    String xpath = SelectorText.replace("xpath/", "");
+                                    System.out.println(xpath);
+                                    String Text = step.get("value").asText();
+                                    long startTime = System.currentTimeMillis();
+                                    Timestamp startTimeStamp = new Timestamp(startTime);
+                                    waitForElementVisibility(By.xpath(xpath));
+                                    long endTime = System.currentTimeMillis();
+                                    Timestamp endTimeStamp = new Timestamp(endTime);
+                                    enterText(By.xpath(xpath), Text);
+                                    if(!title.equals("")){
+                                        storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
+                                    }
+
+//                                    break;
+                                }
+                            } catch (Exception e) {
+                                if(!title.equals("")){
+                                    storeLog(zero, "", 0, zero, "Failed", title, url, userId);
+                                }
+                                System.out.println(e.toString());
+
+
+                            }
+                        }
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }finally {
+            Thread.sleep(50000);
+            driver.quit();
         }
-        Thread.sleep(1000);
-        driver.quit();
+
+
     }
 }

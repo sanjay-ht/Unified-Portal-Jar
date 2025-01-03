@@ -35,7 +35,7 @@ public class UsersManagementService {
                 .build();
         List<ExecutionTime> executionTimes = new ArrayList<>();
         try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+                    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             ObjectMapper objectMapper = new ObjectMapper();
             executionTimes = objectMapper.readValue(
