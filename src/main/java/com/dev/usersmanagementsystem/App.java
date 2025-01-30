@@ -127,6 +127,45 @@ public class App {
         button.click();
 
     }
+    private int[] extractNumbers(String stg) {
+        int[] numbers = new int[3];
+        int count = 0;
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : stg.toCharArray()) {
+            if (Character.isDigit(c)) {
+                sb.append(c);
+            } else if (sb.length() > 0) {
+                numbers[count++] = Integer.parseInt(sb.toString());
+                sb.setLength(0);
+            }
+        }
+
+        if (sb.length() > 0) {
+            numbers[count] = Integer.parseInt(sb.toString());
+        }
+
+        return numbers;
+    }
+
+    private int identifySmallestValue(String stg) {
+        int[] numbers = extractNumbers(stg);
+        int smallest = Math.min(numbers[0], Math.min(numbers[1], numbers[2]));
+        System.out.println(smallest);
+        return smallest;
+    }
+    private int identifyBiggestValue(String stg) {
+        int[] numbers = extractNumbers(stg);
+        int biggest = Math.max(numbers[0], Math.max(numbers[1], numbers[2]));
+        System.out.println(biggest);
+        return biggest;
+    }
+    private int calculateSum(String stg) {
+        int[] numbers = extractNumbers(stg);
+        int sum = numbers[0] + numbers[1];
+        System.out.println(sum);
+        return sum;
+    }
 
     public void runCode(String jsonContent, int userId) throws IOException, InterruptedException {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -237,6 +276,23 @@ public class App {
                     System.out.println("Start Time");
                     Thread.sleep(20000);
                     System.out.println("End Time");
+                }
+                if(type.equals("captcha")){
+                    WebElement vertn = driver.findElement(By.xpath("//label[@id='IMAGECAPTCHA']"));
+                    String stg = vertn.getText();
+                    System.out.println(stg);
+                    int a = 1;
+                    if (stg.contains("What is the result of")) {
+                        a = calculateSum(stg);
+                    } else if (stg.contains("Identify biggest value")) {
+                        a = identifyBiggestValue(stg);
+                    } else if (stg.contains("Identify smallest value")) {
+                        a = identifySmallestValue(stg);
+                    }
+
+                    String s = Integer.toString(a);
+                    enterText(By.xpath("//input[@id='AuthenticationFG.VERIFICATION_CODE']"), s);
+
                 }
                 if (type.equals("change")) {
                     JsonNode selectorsGroup = step.get("selectors");
