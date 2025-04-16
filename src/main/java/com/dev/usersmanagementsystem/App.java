@@ -30,7 +30,7 @@ public class App {
 
     private WebDriver driver;
 
-    private final String baseUrl = "http://127.0.0.1:8080/api/store-logs";
+    private final String baseUrl = "http://13.126.48.191:8080/api/store-logs";
     public void setup() {
         WebDriverManager.edgedriver().setup();
         EdgeOptions opt = new EdgeOptions();
@@ -272,7 +272,7 @@ public class App {
         }
 
         String s = Integer.toString(a);
-        enterText(By.xpath("//*[@id=\"Login__Login__LoginCaptchaInput\"]"), s);
+        enterText(By.xpath("//input[@id='AuthenticationFG.VERIFICATION_CODE']"), s);
 
     }
     private void handleChange(JsonNode step, int userId,Timestamp zero) {
