@@ -30,14 +30,13 @@ public class App {
 
     private WebDriver driver;
 
-    private final String baseUrl = "http://13.126.48.191:8080/api/store-logs";
-
+    private final String baseUrl = "http://127.0.0.1:8080/api/store-logs";
     public void setup() {
         WebDriverManager.edgedriver().setup();
         EdgeOptions opt = new EdgeOptions();
         opt.addArguments("--remote-allow-origins=*");
         driver = new EdgeDriver(opt);
-        driver.manage().window().maximize();
+        driver.manage().window().fullscreen();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
@@ -91,13 +90,14 @@ public class App {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5000));
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
     }
-
-    private void enterText(By Selector, String text) {
+    private void enterText(By Selector, String text) throws InterruptedException {
         WebElement element = driver.findElement(Selector);
         if (element != null) {
-            element.clear();
+            element.sendKeys(Keys.CONTROL + "a");
+            element.sendKeys(Keys.DELETE);
             element.sendKeys(text);
         }
+        Thread.sleep(500);
     }
 
     private void navigateAndWait(String url) {
@@ -121,11 +121,25 @@ public class App {
         });
     }
 
-    private void clickOnElement(By locator) {
-        waitForElementVisibility(locator);
-        WebElement button = driver.findElement(locator);
-        button.click();
+    private void clickOnElement(By locator) throws InterruptedException {
+        Thread.sleep(1500);
+        WebElement button = null;
+            try {
+//                // Wait for the element to be visible
+//                waitForElementVisibility(locator);
+                // Find the element
+               button = driver.findElement(locator);
+               button.sendKeys(Keys.RETURN);
+            } catch (ElementNotInteractableException e) {
+                    try{
+                        JavascriptExecutor js = (JavascriptExecutor) driver;
+                        js.executeScript("arguments[0].click();", button);
+                    }
+                    catch(JavascriptException exception) {
+                        button.click();
+                    }
 
+            }
     }
     private int[] extractNumbers(String stg) {
         int[] numbers = new int[3];
@@ -167,6 +181,138 @@ public class App {
         return sum;
     }
 
+    private void handleClick(JsonNode step, int userId,Timestamp zero) throws InterruptedException {
+        JsonNode selectorsGroup = step.get("selectors");
+        JsonNode assertedEvents=step.get("assertedEvents");
+        String url="";
+        String title="";
+        if (assertedEvents != null && !assertedEvents.isEmpty()) {
+            url=assertedEvents.get(0).get("url").asText();
+            title=assertedEvents.get(0).get("title").asText();
+        }
+        for (JsonNode selectors : selectorsGroup) {
+            for (JsonNode selector : selectors) {
+                String SelectorText = selector.asText();
+                System.out.println("Selector: " + SelectorText);
+                try {
+                    if(SelectorText.startsWith("xpath")) {
+                        String xpath = SelectorText.replace("xpath/", "");;
+                        System.out.println(xpath);
+                        long startTime = System.currentTimeMillis();
+                        Timestamp startTimeStamp = new Timestamp(startTime);
+
+
+                        long endTime = System.currentTimeMillis();
+                        Timestamp endTimeStamp = new Timestamp(endTime);
+                        clickOnElement(By.xpath(xpath));
+                        if(!title.equals("")){
+                            storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
+
+                        }
+//                                    break;  // Stop after first successful click (you can remove this if you want to keep trying other selectors)
+                    }
+                }
+                catch(NoSuchElementException e) {
+                    // Handle XPath failure and fallback to CSS selector
+                    String regex = "component-[\\w-]+";  // Refined regex for better matching
+                    Pattern pattern = Pattern.compile(regex);
+                    Matcher matcher = pattern.matcher(SelectorText);
+                    System.out.println("Xpath Didn't Work, Trying With Css Selector");
+
+                    if (matcher.find()) {
+                        String csspath = matcher.group(); // Extracted ID part
+                        csspath = "#" + csspath;  // Format as CSS selector
+                        System.out.println("Extracted ID: " + csspath);
+                        long startTime = System.currentTimeMillis();
+                        Timestamp startTimeStamp = new Timestamp(startTime);
+
+
+                        long endTime = System.currentTimeMillis();
+                        Timestamp endTimeStamp = new Timestamp(endTime);
+
+                        clickOnElement(By.cssSelector(csspath));
+                        if(!title.equals("")){
+                            storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
+                        }
+
+//                                    break;  // Stop after successful click (same as before, optional)
+                    } else {
+                        Pattern patterns = Pattern.compile("id=\"([^\"]+)\"");
+                        Matcher matchers = patterns.matcher(SelectorText);
+                        if (matchers.find()) {
+                            clickOnElement(By.id(matchers.group(1)));
+
+                        }
+                        if(!title.equals("")){
+                            storeLog(zero, "", 0, zero, "Failed", title, url, userId);
+                        }
+                        System.out.println("ID not found in fallback attempt.");
+//                                    break;
+                        driver.quit();
+                        return;
+                    }
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+
+    private void handleCaptcha(JsonNode step) throws Exception {
+        WebElement vertn = driver.findElement(By.xpath("//label[@id='IMAGECAPTCHA']"));
+        String stg = vertn.getText();
+        System.out.println(stg);
+        int a = 1;
+        if (stg.contains("What is the result of")) {
+            a = calculateSum(stg);
+        } else if (stg.contains("Identify biggest value")) {
+            a = identifyBiggestValue(stg);
+        } else if (stg.contains("Identify smallest value")) {
+            a = identifySmallestValue(stg);
+        }
+
+        String s = Integer.toString(a);
+        enterText(By.xpath("//*[@id=\"Login__Login__LoginCaptchaInput\"]"), s);
+
+    }
+    private void handleChange(JsonNode step, int userId,Timestamp zero) {
+
+        JsonNode selectorsGroup = step.get("selectors");
+        String url="";
+        String title="";
+        JsonNode assertedEvents=step.get("assertedEvents");
+        if (assertedEvents != null && !assertedEvents.isEmpty()) {
+            url=assertedEvents.get(0).get("url").asText();
+            title=assertedEvents.get(0).get("title").asText();
+        }
+        for (JsonNode selectors : selectorsGroup) {
+            for (JsonNode selector : selectors) {
+                String SelectorText = selector.asText();
+                System.out.println("Selector: " + SelectorText);
+                try {
+                    if (SelectorText.startsWith("xpath")) {
+                        String xpath = SelectorText.replace("xpath/", "");
+                        System.out.println(xpath);
+                        String Text = step.get("value").asText();
+                        long startTime = System.currentTimeMillis();
+                        Timestamp startTimeStamp = new Timestamp(startTime);
+                        waitForElementVisibility(By.xpath(xpath));
+                        long endTime = System.currentTimeMillis();
+                        Timestamp endTimeStamp = new Timestamp(endTime);
+                        enterText(By.xpath(xpath), Text);
+                        if(!title.equals("")){
+                            storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
+                        }
+//                                    break;
+                    }
+                } catch (Exception e) {
+                    if(!title.equals("")){
+                        storeLog(zero, "", 0, zero, "Failed", title, url, userId);
+                    }
+                    System.out.println(e.toString());
+                }
+            }
+        }}
     public void runCode(String jsonContent, int userId) throws IOException, InterruptedException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = objectMapper.readTree(jsonContent);
@@ -174,11 +320,24 @@ public class App {
         System.out.println("Steps: " + stepsNode);
         int nodelen = getNodeLength(stepsNode);
         System.out.println("Length of Steps are " + nodelen);
-        Timestamp zero=new Timestamp(0);
-        try{
+        Timestamp zero = new Timestamp(0);
+        try {
             for (JsonNode step : stepsNode) {
                 System.out.println("Step: " + step);
                 String type = step.get("type").asText();
+                if(type.equals("captcha"))
+                {
+                   Thread.sleep(10000);
+                }
+                if(type.equals("OTP"))
+                {
+                    Thread.sleep(35000);
+                }
+                if (type.equals("setViewport")) {
+                    int width = step.get("width").asInt();
+                    int height = step.get("height").asInt();
+                    driver.manage().window().setSize(new org.openqa.selenium.Dimension(width, height));
+                }
                 if (type.equals("navigate")) {
                     String url = step.get("url").asText();
                     JsonNode assertedEventsNode = step.get("assertedEvents");
@@ -202,148 +361,24 @@ public class App {
                     }
                 }
                 if (type.equals("click")) {
-                    JsonNode selectorsGroup = step.get("selectors");
-                    JsonNode assertedEvents=step.get("assertedEvents");
-                    String url="";
-                    String title="";
-                    if (assertedEvents != null && !assertedEvents.isEmpty()) {
-                         url=assertedEvents.get(0).get("url").asText();
-                         title=assertedEvents.get(0).get("title").asText();
-                    }
-                    for (JsonNode selectors : selectorsGroup) {
-                        for (JsonNode selector : selectors) {
-                            String SelectorText = selector.asText();
-                            System.out.println("Selector: " + SelectorText);
-                            try {
-                                 if(SelectorText.startsWith("xpath")) {
-                                    String xpath = SelectorText.replace("xpath/", "");
-                                    System.out.println(xpath);
-                                    long startTime = System.currentTimeMillis();
-                                    Timestamp startTimeStamp = new Timestamp(startTime);
-
-                                    waitForElementVisibility(By.xpath(xpath));
-
-                                    long endTime = System.currentTimeMillis();
-                                    Timestamp endTimeStamp = new Timestamp(endTime);
-                                    clickOnElement(By.xpath(xpath));
-                                    if(!title.equals("")){
-                                        storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
-
-                                    }
-//                                    break;  // Stop after first successful click (you can remove this if you want to keep trying other selectors)
-                                }
-                            } catch (NoSuchElementException e) {
-                                // Handle XPath failure and fallback to CSS selector
-                                String regex = "component-[\\w-]+";  // Refined regex for better matching
-                                Pattern pattern = Pattern.compile(regex);
-                                Matcher matcher = pattern.matcher(SelectorText);
-                                System.out.println("Xpath Didn't Work, Trying With Css Selector");
-
-                                if (matcher.find()) {
-                                    String csspath = matcher.group(); // Extracted ID part
-                                    csspath = "#" + csspath;  // Format as CSS selector
-                                    System.out.println("Extracted ID: " + csspath);
-                                    long startTime = System.currentTimeMillis();
-                                    Timestamp startTimeStamp = new Timestamp(startTime);
-
-
-                                    waitForElementVisibility(By.cssSelector(csspath));
-                                    long endTime = System.currentTimeMillis();
-                                    Timestamp endTimeStamp = new Timestamp(endTime);
-
-                                    clickOnElement(By.cssSelector(csspath));
-                                    if(!title.equals("")){
-                                        storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
-                                    }
-
-//                                    break;  // Stop after successful click (same as before, optional)
-                                } else {
-                                    if(!title.equals("")){
-                                        storeLog(zero, "", 0, zero, "Failed", title, url, userId);
-                                    }
-                                    System.out.println("ID not found in fallback attempt.");
-//                                    break;
-                                    driver.quit();
-                                    return;
-                                }
-                            }
-                        }
-                    }
+                    handleClick(step,userId,zero);
                 }
-
-
                 if (type.equals("wait")) {
                     System.out.println("Start Time");
-                    Thread.sleep(20000);
+                    Thread.sleep(500);
                     System.out.println("End Time");
                 }
-                if(type.equals("captcha")){
-                    WebElement vertn = driver.findElement(By.xpath("//label[@id='IMAGECAPTCHA']"));
-                    String stg = vertn.getText();
-                    System.out.println(stg);
-                    int a = 1;
-                    if (stg.contains("What is the result of")) {
-                        a = calculateSum(stg);
-                    } else if (stg.contains("Identify biggest value")) {
-                        a = identifyBiggestValue(stg);
-                    } else if (stg.contains("Identify smallest value")) {
-                        a = identifySmallestValue(stg);
-                    }
-
-                    String s = Integer.toString(a);
-                    enterText(By.xpath("//input[@id='AuthenticationFG.VERIFICATION_CODE']"), s);
-
-                }
                 if (type.equals("change")) {
-                    JsonNode selectorsGroup = step.get("selectors");
-                    String url="";
-                    String title="";
-                    JsonNode assertedEvents=step.get("assertedEvents");
-                    if (assertedEvents != null && !assertedEvents.isEmpty()) {
-                        url=assertedEvents.get(0).get("url").asText();
-                        title=assertedEvents.get(0).get("title").asText();
-                    }
-                    for (JsonNode selectors : selectorsGroup) {
-                        for (JsonNode selector : selectors) {
-                            String SelectorText = selector.asText();
-                            System.out.println("Selector: " + SelectorText);
-                            try {
-                                 if (SelectorText.startsWith("xpath")) {
-                                    String xpath = SelectorText.replace("xpath/", "");
-                                    System.out.println(xpath);
-                                    String Text = step.get("value").asText();
-                                    long startTime = System.currentTimeMillis();
-                                    Timestamp startTimeStamp = new Timestamp(startTime);
-                                    waitForElementVisibility(By.xpath(xpath));
-                                    long endTime = System.currentTimeMillis();
-                                    Timestamp endTimeStamp = new Timestamp(endTime);
-                                    enterText(By.xpath(xpath), Text);
-                                    if(!title.equals("")){
-                                        storeLog(endTimeStamp, "", endTime - startTime, startTimeStamp, "Success", title, url, userId);
-                                    }
-
-//                                    break;
-                                }
-                            } catch (Exception e) {
-                                if(!title.equals("")){
-                                    storeLog(zero, "", 0, zero, "Failed", title, url, userId);
-                                }
-                                System.out.println(e.toString());
-
-
-                            }
-                        }
-                    }
+                    handleChange(step,userId,zero);
                 }
 
             }
+            Thread.sleep(1000);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }finally {
-            Thread.sleep(50000);
+            Thread.sleep(500);
             driver.quit();
         }
-
-
     }
 }
