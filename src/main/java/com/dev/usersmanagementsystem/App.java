@@ -129,14 +129,14 @@ public class App {
 //                waitForElementVisibility(locator);
                 // Find the element
                button = driver.findElement(locator);
-               button.sendKeys(Keys.RETURN);
+                button.click();
             } catch (ElementNotInteractableException e) {
                     try{
                         JavascriptExecutor js = (JavascriptExecutor) driver;
                         js.executeScript("arguments[0].click();", button);
                     }
                     catch(JavascriptException exception) {
-                        button.click();
+                        button.sendKeys(Keys.RETURN);
                     }
 
             }
